@@ -113,6 +113,9 @@ Banner
         padding-left: 10px;
         padding-right:0px;
     }
+    .nosotros-text{
+        padding-top: 20px;
+    }
 }
 .banner .banner-img{
     zoom: 10%;
@@ -140,11 +143,6 @@ Banner
 	color: #fff;
 	margin-top: 30px;
 }
-
-.padleft-right{
-    padding-left: 10px;
-    padding-right: 10px;
-}
 .big-text{
     font-size: 35px;
 }
@@ -160,6 +158,9 @@ Features
 h2{
 	font-size: 24px;
 	padding-bottom: 15px;
+}
+#portfolio{
+    background-color: #F5F5F5;
 }
 .bottom-line{
 	width: 25px;
@@ -192,8 +193,12 @@ h2{
   text-align: left;
 }
 /***********************************
-Course
+Portfolio
 ************************************/
+.padleft-right{
+    padding-left: 10px;
+    padding-right: 10px;
+}
 [class*=" imghvr-"] figcaption, [class^="imghvr-"] figcaption {
     background-color: #457BAE;
 }
@@ -201,7 +206,14 @@ Course
     background-color: #457BAE;
     color: #fff;
 }
-
+@media (min-width:995px) and (max-width:1200px){ 
+    .img-title{
+        font-size:16px;
+    }
+    .img-caption{
+        font-size:14px;
+    }  
+}
 /***********************************
 Footer
 ************************************/

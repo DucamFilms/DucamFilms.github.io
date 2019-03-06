@@ -1,29 +1,33 @@
 (function ($) {
                 
-    // Navigation scrolls
-    $('.navbar-nav li a').bind('click', function(event) {
-        var $anchor = $(this);
-        var nav = $($anchor.attr('href'));
-        if (nav.length) {
-        $('html, body').stop().animate({				
-            scrollTop: $($anchor.attr('href')).offset().top				
-        }, 1500, 'easeInOutExpo');
-        
-        event.preventDefault();
+    "use strict"; // Start of use strict
+
+    // Smooth scrolling using jQuery easing
+    $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
+      if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+        if (target.length) {
+          $('html, body').animate({
+            scrollTop: (target.offset().top - 56)
+          }, 1000, "easeInOutExpo");
+          return false;
         }
+      }
     });
-    
-    // Add smooth scrolling to all links in navbar
-    $(".navbar a, a.mouse-hover, .overlay-detail a").on('click', function(event) {
-        event.preventDefault();
-        var hash = this.hash;
-        $('html, body').animate({
-            scrollTop: $(hash).offset().top
-        }, 900, function(){
-            window.location.hash = hash;
-        });
+  
+    // Closes responsive menu when a scroll trigger link is clicked
+    $('.js-scroll-trigger').click(function() {
+      $('.navbar-collapse').collapse('hide');
     });
-    $('body').scrollspy({ target: '#myNavbar' });
+  
+    // Activate scrollspy to add active class to navbar items on scroll
+    $('body').scrollspy({
+      target: '#mainNav',
+      offset: 56
+    });
+
+
     //Transparencia on top
     function checkScroll(){
     var startY = $('.navbar').height() * 2; //The point where the navbar changes in px
@@ -40,10 +44,6 @@
         checkScroll();
       });
     }
-    
-     // Closes the Responsive Menu on Menu Item Click
-    $('.navbar-collapse ul li a').click(function() {
-        $('.navbar-toggle:visible').click();
-    });
+
 
 })(jQuery);
